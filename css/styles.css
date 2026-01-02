@@ -1,12 +1,43 @@
+:root {
+    --blue-50: #e9f5ff;
+    --blue-100: #d3eaff;
+    --primary: #0d6efd; /* Bootstrap blue */
+    --primary-dark: #0056b3;
+    --accent: #0b5ed7;
+    --text: #222222;
+    --bg: #f6fbff;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    color: #333;
+    color: var(--text);
     padding-top: 80px; /* Prevent nav overlap */
+    background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 45%, #bfeaff 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Ensure html/body take full height so gradient fills page */
+html, body {
+    height: 100%;
+}
+
+/* Class applied to body to guarantee gradient covers full viewport and content */
+.page-gradient {
+    min-height: 100vh;
+}
+
+/* Uniform container for consistency across projects */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .navbar {
-    background: linear-gradient(to right, #003A8C, #6F42C1) !important; /* Serious gradient: dark blue to purple */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: linear-gradient(to right, var(--primary-dark), var(--primary)) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 .logo-img {
@@ -20,13 +51,13 @@ body {
 }
 
 .hero {
-    background: url('../IMG/hero-bg.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Parallax effect */
+    background: transparent; /* Let body gradient show through */
     height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-bottom: 60px; /* Add space between hero and next section */
 }
 
 .hero::before {
@@ -36,7 +67,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 58, 140, 0.5), rgba(111, 66, 193, 0.5)); /* Subdued overlay gradient */
+    /* Subtle blue overlay so hero text remains readable */
+    background: linear-gradient(rgba(0,86,179,0.12), rgba(13,110,253,0.08));
+    pointer-events: none;
 }
 
 .hero .container {
@@ -58,18 +91,19 @@ body {
 }
 
 .bg-main {
-    background: linear-gradient(to bottom, #F8F9FA, #E9ECEF); /* Light, serious grayish gradient */
-    color: #333;
+    background: transparent; /* Let body gradient show through */
+    color: inherit;
 }
 
 .bg-alt {
-    background: linear-gradient(to bottom, #E9ECEF, #DEE2E6); /* Slightly darker alternate */
-    color: #333;
+    background: transparent; /* Let body gradient show through */
+    color: inherit;
 }
 
 .card {
     border: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.96); /* Slight transparency to show gradient around cards */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -103,11 +137,13 @@ footer {
 }
 
 .bg-main {
-    background: linear-gradient(to bottom, #F8F9FA, #E9ECEF); /* Inspired by slide backgrounds */
+    background: transparent;
+    color: inherit;
 }
 
 .bg-alt {
-    background: linear-gradient(to bottom, #E9ECEF, #DEE2E6);
+    background: transparent;
+    color: inherit;
 }
 
 .activity-list li {
@@ -119,7 +155,7 @@ footer {
 }
 
 .metric-card {
-    background: #FFFFFF;
+    background: rgba(255,255,255,0.95);
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
