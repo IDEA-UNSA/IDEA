@@ -154,6 +154,12 @@ footer {
     transform: scale(1.05); /* Subtle scale animation on hover, inspired by slide icons */
 }
 
+.activity-list {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
 .metric-card {
     background: rgba(255,255,255,0.95);
     border-radius: 8px;
